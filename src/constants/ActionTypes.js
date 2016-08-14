@@ -1,0 +1,6 @@
+export default {
+    GET_MESSAGES: 'GET_MESSAGES',
+    GET_SPACES: 'GET_SPACES',
+    GET_CHANNELS: 'GET_CHANNELS'
+
+}
