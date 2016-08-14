@@ -1,0 +1,84 @@
+@import 'bootstrap.scss';
+
+body {
+  padding-top: 50px;
+  font-family: "Roboto", "Helvetica Neue", sans-serif;
+}
+
+ // navbar
+.navbar {
+  background: #3B9DD8;
+}
+.nav-link {
+  color: #fff;
+}
+.nav-link-active {
+  font-weight: 600;
+}
+.navbar-brand {
+  color: #fff;
+}
+
+
+.sidebar {
+  position: fixed;
+  top: 51px;
+  bottom: 0;
+  z-index: 1000;
+  display: block;
+  padding: 20px;
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+  background-color: #f5f5f5;
+
+  
+  
+}
+.sidebar-left {
+  left: 0;
+}
+
+
+.nav-sidebar > li > a {
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  color: #B3B3B3;
+}
+.nav-sidebar > .active > a,
+.nav-sidebar > .active > a:hover,
+.nav-sidebar > .active > a:focus {
+  color: #fff;
+}
+
+//main content
+.main {
+  padding: 20px;
+}
+@media (min-width: 768px) {
+  .main {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+}
+.main .page-header {
+  margin-top: 0;
+}
+
+
+//message box
+.msg-input {
+  position: fixed;
+  bottom: 0;
+  padding: 20px;
+  width: 70%;
+}
+
+.space-name {
+  font-weight: 600;
+}
+.space-group {
+  margin-top: 15px;
+}
+
