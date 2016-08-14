@@ -9,21 +9,18 @@ import { bindActionCreators } from 'redux'
 import * as messagesActions from './actions/messages'
 import * as channelsActions from './actions/channels'
 
+// make state available as props
+const mapStateToProps = (state) => ({
+  messages: state.messages.messages,
+})
 
-
-function mapStateToProps(state) {
-  console.log(state)
-  return {
-    messages : state.messages.messages
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    messagesActions: bindActionCreators(messagesActions, dispatch),
-    channelsActions: bindActionCreators(channelsActions, dispatch)
+// make actions available as props
+const mapDispatchToProps = (dispatch) => ({
+  actions: {
+    messages: bindActionCreators(messagesActions, dispatch),
+    channels: bindActionCreators(channelsActions, dispatch)
   }
-}
+})
 var App = connect(mapStateToProps, mapDispatchToProps)(Main)
 
 const root = document.getElementById('app-root')

@@ -1,6 +1,17 @@
 import React, { Component } from 'react'
 
 class MsgInput extends Component {
+  _onKeyDown(event) {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      let text = this.refs.message.value.trim()
+      if (text) {
+        console.log(this.props)
+        this.props.actions.messages.postMessage(text)
+      }
+      this.refs.message.value = ''
+    }
+  }
   render() {
     return(
           <div className="col-lg-6">
@@ -13,13 +24,16 @@ class MsgInput extends Component {
                   rows="1" 
                   autoComplete="off" 
                   placeholder="What's up?" 
-                  autoFocus="true">
-                </input>
+                  autoFocus="true"
+                  ref="message"
+                  onKeyDown={this._onKeyDown.bind(this)}
+                  />
               </div>
             </form>
           </div>
            )
   }
+
 }
 
 export default MsgInput

@@ -3,7 +3,7 @@ import SpaceMenu from './SpaceMenu'
 
 class MenuSection extends Component {
   render() {
-    const spaces = this.props.channelsActions.getSpaces().payload
+    const spaces = this.props.actions.channels.getSpaces().payload
     return(
            <div>
            <h5>Channels</h5>

@@ -3,7 +3,7 @@ import Message from './Message'
 
 class MessageList extends Component {
     render() {
-        const messages = this.props.messagesActions.getMessages().payload
+        const messages = this.props.actions.messages.getMessages().payload
         return ( 
                 <div className="media">
                 {console.log()}
