@@ -6,8 +6,7 @@ class MsgInput extends Component {
       event.preventDefault();
       let text = this.refs.message.value.trim()
       if (text) {
-        console.log(this.props)
-        this.props.actions.messages.postMessage(text)
+        this.props.channel.push("new_msg", {body: text})
       }
       this.refs.message.value = ''
     }

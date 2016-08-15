@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux'
 import { routerReducer } from 'react-router-redux'
 import { messages } from './messages'
-import { sockets } from './sockets'
+import { channels } from './channels'
 
 const rootReducer = combineReducers({
     messages,
-    sockets,
+    channels,
     routing: routerReducer
 })
 

@@ -4,6 +4,7 @@
     "start": "./node_modules/.bin/webpack-dev-server"
   },
   "dependencies": {
+    "babel-plugin-transform-object-rest-spread": "^6.8.0",
     "bootstrap": "^3.3.7",
     "bootstrap-sass": "^3.3.7",
     "material-ui": "^0.15.3",

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 class SpaceMenu extends Component {
   render() {
-    const channels = this.props.actions.channels.getChannels().payload
+    const { channels } = this.props.channels
     return(
            <div className="space-group">
            <li>

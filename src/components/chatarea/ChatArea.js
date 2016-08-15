@@ -4,12 +4,17 @@ import MessageList from '../message/MessageList'
 
 
 class ChatArea extends Component {
+  componentWillMount () {
+    const { socket } = this.props
+    this.channel = socket.channel('channel:general')
+    this.channel.join()
+  }
   render() {
     return(
            <div className="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
                 <h3 className="page-header">Welcome in DevChat</h3>
-                    <MessageList {...this.props} />
-                    <MsgInput {...this.props}/>
+                    <MessageList channel={this.channel} {...this.props} />
+                    <MsgInput channel={this.channel} {...this.props}/>
 
            </div>
            )
