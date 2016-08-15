@@ -9,12 +9,7 @@ class Main extends Component {
     return (
             <div>
             <Navbar/>
-              <div className="container-fluid">
-                <div className="row">
-                  <Sidebar {...this.props}/>
-                  <ChatArea {...this.props}/>
-                </div>
-              </div>
+            { React.cloneElement(this.props.children, this.props) }
             </div>
             )
   }
