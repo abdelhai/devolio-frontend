@@ -2,8 +2,8 @@ import types from '../constants/ActionTypes'
 
 const initialState = {
   messages: [
-    {user: '@mustafa', body: 'hello'},
-    {user: '@mustafa', body: 'world'},
+    {user: 'mustafa', body: 'hello'},
+    {user: 'mustafa', body: 'world'},
   ]
 }
 export function messages(state=initialState, action) {

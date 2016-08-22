@@ -8,14 +8,14 @@ class Navbar extends Component {
   }
   componentWillMount() {
     const { user } = this.props
-    this.username = user.username
+    this.username = JSON.parse(user.username)
     this.loggedin = user.loggedin
   }
   renderAuth() {
     if (this.loggedin) {
       return (
         <ul className="nav navbar-nav navbar-right">
-          <li><p className="navbar-text">Hello {this.username}!</p></li>
+          <li><p className="navbar-text">Hello, @{this.username}</p></li>
           <li><a onClick={this.logOut.bind(this)} className="nav-link" href="#">Logout</a></li>
         </ul>)
     } else {

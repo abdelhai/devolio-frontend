@@ -1,7 +1,11 @@
 import React, { Component } from 'react'
 import Message from './Message'
+import ReactEmoji from 'react-emoji'
 
 class MessageList extends Component {
+  //  mixins: [
+  //   ReactEmoji
+  // ]
   componentDidMount() {
     const { channel } = this.props
     const { messages } = this.props.actions
@@ -17,7 +21,7 @@ class MessageList extends Component {
             <div className="media">
             {console.log()}
              {messages.map((msg,i) => {
-                return <Message key={i} payload={msg.body} username={msg.user} />
+                return <Message key={i} payload={ReactEmoji.emojify(msg.body, {emojiType:'emojione'})} username={msg.user} />
              })}
             </div>
             )

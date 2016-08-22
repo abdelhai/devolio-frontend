@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import MsgInput from '../msginput/MsgInput'
+import Composer from '../composer/Composer'
 import MessageList from '../message/MessageList'
 
 
@@ -14,8 +14,7 @@ class ChatArea extends Component {
            <div className="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
                 <h3 className="page-header">Welcome in DevChat</h3>
                     <MessageList channel={this.channel} {...this.props} />
-                    <MsgInput channel={this.channel} {...this.props}/>
-
+                    <Composer channel={this.channel} {...this.props}/>
            </div>
            )
   }
