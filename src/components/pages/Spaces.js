@@ -4,7 +4,7 @@ import Navbar from '../navbar/Navbar'
 import ChatArea from '../chatarea/ChatArea'
 
 
-class DevChat extends Component {
+class Spaces extends Component {
   render() {
     return (
             <div>
@@ -19,4 +19,4 @@ class DevChat extends Component {
   }
 }
 
-export default DevChat
+export default Spaces

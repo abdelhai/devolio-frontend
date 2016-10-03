@@ -2,15 +2,16 @@
 
 body {
   padding-top: 50px;
-  font-family: "Roboto", "Helvetica Neue", sans-serif;
+  font-family: "jaf-domus", "Helvetica Neue", sans-serif;
+  font-size:2em;
 }
 
  // navbar
 .navbar {
-  background: #3B9DD8;
+  background: #3b9dd8;
 }
 .nav-link {
-  color: #fff;
+  color: #61A9FA;
 }
 .nav-link-active {
   font-weight: 600;
@@ -45,6 +46,9 @@ body {
   padding-bottom: 5px;
   padding-top: 5px;
   color: #B3B3B3;
+}
+.nav > li > a {
+  color:#b6d3e4;
 }
 .nav-sidebar > .active > a,
 .nav-sidebar > .active > a:hover,
@@ -85,4 +89,7 @@ body {
 .media {
   height: 600px;
   overflow-x: scroll;
+}
+.navbar-text {
+  color: #fff
 }

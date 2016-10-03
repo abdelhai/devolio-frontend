@@ -7,7 +7,8 @@ class MsgInput extends Component {
       let text = this.refs.message.value.trim()
       if (text) {
         const username = JSON.parse(this.props.user.username)
-        this.props.channel.push("new_msg", {body: text, user: username})
+        const spaceId = this.props.params.spaceId
+        this.props.channel.push("new_msg", {body: text, user: username, space: spaceId})
       }
       this.refs.message.value = ''
     }

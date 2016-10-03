@@ -3,9 +3,6 @@ import Message from './Message'
 import ReactEmoji from 'react-emoji'
 
 class MessageList extends Component {
-  //  mixins: [
-  //   ReactEmoji
-  // ]
   componentDidMount() {
     const { channel } = this.props
     const { messages } = this.props.actions
@@ -13,13 +10,15 @@ class MessageList extends Component {
       messages.newMessage(payload)
     })
   }
+  componentDidUpdate() {
+    let container = this.refs.media
+    container.scrollTop = container.scrollHeight
+  }
   render() {
-    console.log(this)
-
     const { messages } = this.props
     return ( 
-            <div className="media">
-            {console.log()}
+            <div ref="media" className="media">
+            {console.log(this)}
              {messages.map((msg,i) => {
                 return <Message key={i} payload={ReactEmoji.emojify(msg.body, {emojiType:'emojione'})} username={msg.user} />
              })}
