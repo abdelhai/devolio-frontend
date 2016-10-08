@@ -15,30 +15,35 @@ export function user(state=initialState, action) {
         let data = action.payload.data
         return {
           ...state,
-          id: data.id,
-          username: data.username,
-          email: data.email,
-          jwt: data.jwt,
-          loggedin: true,
+
+            id: data.id,
+            username: data.username,
+            email: data.email,
+            jwt: data.jwt,
+            loggedin: true,
+
         }
       } else {
-        return {...state, error: true}
+          // authError('login error')
       }
     }
     case types.USER_LOGOUT: {
       // this will reset/empty the user's state
       return initialState
     }
+    case types.AUTH_ERROR: {
+      return {...state, error: true}
+    }
     case types.USER_SIGNUP: {
       if (!action.error) {
         let data = action.payload.data
         return {
           ...state,
-          id: data.id,
-          username: data.username,
-          email: data.email,
-          jwt: data.jwt,
-          loggedin: true,
+            id: data.id,
+            username: data.username,
+            email: data.email,
+            jwt: data.jwt,
+            loggedin: true,
         }
       } else {
         return {...state, error: true}

@@ -9,6 +9,7 @@ import { bindActionCreators } from 'redux'
 import * as messagesActions from './actions/messages'
 import * as usersActions from './actions/users'
 import * as spacesActions from './actions/spaces'
+import * as errsActions from './actions/errs'
 import socket from './socket'
 import Spaces from './components/pages/Spaces'
 import SignUp from './components/auth/SignUp'
@@ -21,7 +22,8 @@ const mapStateToProps = (state) => ({
   socket: socket,
   messages: state.messages.messages,
   spaces: state.spaces,
-  user: state.user
+  user: state.user,
+  err: state.err
 })
 
 // make actions available as props
@@ -29,7 +31,8 @@ const mapDispatchToProps = (dispatch) => ({
   actions: {
     messages: bindActionCreators(messagesActions, dispatch),
     users: bindActionCreators(usersActions, dispatch),
-    spaces: bindActionCreators(spacesActions, dispatch)
+    spaces: bindActionCreators(spacesActions, dispatch),
+    errs: bindActionCreators(errsActions, dispatch)
   }
 })
 var App = connect(mapStateToProps, mapDispatchToProps)(Main)

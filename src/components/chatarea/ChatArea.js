@@ -9,9 +9,11 @@ class ChatArea extends Component {
   componentWillMount () {
     const { socket } = this.props
     const { spaceId } = this.props.params
+    this.props.actions.messages.fetchSpaceMessages(spaceId)
     this.channel = socket.channel(`channel:${spaceId}`)
     this.channel.join()
   }
+
   render() {
     return(
            <div>

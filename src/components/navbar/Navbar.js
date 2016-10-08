@@ -8,10 +8,13 @@ class Navbar extends Component {
   }
   componentWillMount() {
     const { user } = this.props
-    this.username = JSON.parse(user.username)
+    this.username = user.username
     this.loggedin = user.loggedin
   }
   renderAuth() {
+    const { user } = this.props
+    this.username = user.username
+    this.loggedin = user.loggedin
     if (this.loggedin) {
       return (
         <ul className="nav navbar-nav navbar-right">
@@ -35,7 +38,7 @@ class Navbar extends Component {
     </div>
     <div>
       <ul className="nav navbar-nav">
-        <li><a className="nav-link nav-link-active" href="/">#devchat</a></li>
+        <li><a className="nav-link nav-link-active" href="/">Spaces</a></li>
         <li><a className="nav-link" href="#">Blackboard</a></li>
         <li><a className="nav-link" href="#">Campus</a></li>
         <li><a className="nav-link" href="#">Profile</a></li>

@@ -1,23 +1,50 @@
 import React, { Component } from 'react'
 
+class Shit extends Component {
+  render() {
+    if (this.props.err) {
+      return <div className="alert alert-warning" role="alert">{this.props.err}</div>
+    } else {
+      return null
+    } 
+  }
+}
 class Signup extends Component {
+  componentWillMount() {
+    if (this.props.user.loggedin) {
+      this.context.router.push('/spaces/general/')
+    }
+  }
   handleSubmit(event) {
     event.preventDefault()
     var { username, email, password } = this.refs
     if (username.value !== '' & password.value !== '' & email.value !== '') {
-      var username = JSON.stringify(username.value)
-      var email = JSON.stringify(email.value)
-      var password = JSON.stringify(password.value)
 
-      const { users } = this.props.actions
-      users.signUp(username, email, password)
+      var username = username.value
+      var email = email.value
+      var password = password.value
+
+      if (/\S+@\S+\.\S+/.test(email)) {
+        const { users } = this.props.actions
+        users.signUp(username, email, password) 
+
+        if (!this.props.err.error) {
+          this.context.router.push('/spaces/general/')
+        }
+      
+      } else {
+        this.props.actions.errs.authError('Invalid email')
+      }
+
+
     } else {
-      console.log('fields are empty')
+      this.props.actions.errs.authError('Some/all fields are empty')
     }
   }
   render() {
     return ( 
       <div className="col-xs-6">
+      <Shit err={this.props.err.message} />
         <form className="form-horizontal">
           <div className="form-group">
             <label htmlFor="email" className="col-sm-2 control-label">Username</label>
@@ -47,5 +74,8 @@ class Signup extends Component {
   )
     }
 }
+Signup.contextTypes = {
+  router: React.PropTypes.object.isRequired
+};
 
 export default Signup
